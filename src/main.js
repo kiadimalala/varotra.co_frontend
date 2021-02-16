@@ -3,7 +3,6 @@ import App from "./App.vue";
 import router from "./router";
 import "./assets/tailwind.css";
 import axios from "axios";
-import "./Api/axios.js";
 
 import feather from "vue-icon";
 import store from "./store";

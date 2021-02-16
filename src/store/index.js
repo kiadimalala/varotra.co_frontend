@@ -52,27 +52,27 @@ export default new Vuex.Store({
   },
   actions: {
     getProducts: ({ commit }) => {
-      axios.get("http://localhost:1337/products").then((response) => {
+      axios.get("https://mysterious-everglades-58663.herokuapp.com/products").then((response) => {
         const products = response.data;
         commit("SET_PRODUCTS", products);
       });
     },
     getCategories: ({ commit }) => {
-      axios.get("http://localhost:1337/categories").then((response) => {
+      axios.get("https://mysterious-everglades-58663.herokuapp.com/categories").then((response) => {
         const categories = response.data;
         commit("SET_CATEGORIES", categories);
       });
     },
     getProduct: ({ commit }, productId) => {
       axios
-        .get(`http://localhost:1337/products/${productId}`)
+        .get(`https://mysterious-everglades-58663.herokuapp.com/${productId}`)
         .then((response) => {
           commit("SET_PRODUCT", response.data);
         });
     },
     productByCategory: ({ commit }, categoryId) => {
       axios
-        .get(`http://localhost:1337/categories/${categoryId}`)
+        .get(`https://mysterious-everglades-58663.herokuapp.com/${categoryId}`)
         .then((response) => {
           commit("SET_BY_CATEGORY", response.data);
         });
@@ -83,7 +83,7 @@ export default new Vuex.Store({
 
     logIn: ({ commit }, { identifier, password }) => {
       axios
-        .post("http://localhost:1337/auth/local", {
+        .post("https://mysterious-everglades-58663.herokuapp.com/auth/local", {
           identifier: identifier,
           password: password,
         })
@@ -97,7 +97,7 @@ export default new Vuex.Store({
     },
     register: ({ commit }, { username, email, password }) => {
       axios
-        .post("http://localhost:1337/auth/local/register", {
+        .post("https://mysterious-everglades-58663.herokuapp.com/auth/local/register", {
           username: username,
           email: email,
           password: password,
@@ -112,7 +112,7 @@ export default new Vuex.Store({
     },
     getOrder: ({ commit }) => {
       axios
-        .get("http://localhost:1337/orders", {
+        .get("https://mysterious-everglades-58663.herokuapp.com/orders", {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
