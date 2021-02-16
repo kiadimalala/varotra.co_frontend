@@ -52,20 +52,26 @@ export default new Vuex.Store({
   },
   actions: {
     getProducts: ({ commit }) => {
-      axios.get("https://mysterious-everglades-58663.herokuapp.com/products").then((response) => {
-        const products = response.data;
-        commit("SET_PRODUCTS", products);
-      });
+      axios
+        .get("https://mysterious-everglades-58663.herokuapp.com/products")
+        .then((response) => {
+          const products = response.data;
+          commit("SET_PRODUCTS", products);
+        });
     },
     getCategories: ({ commit }) => {
-      axios.get("https://mysterious-everglades-58663.herokuapp.com/categories").then((response) => {
-        const categories = response.data;
-        commit("SET_CATEGORIES", categories);
-      });
+      axios
+        .get("https://mysterious-everglades-58663.herokuapp.com/categories")
+        .then((response) => {
+          const categories = response.data;
+          commit("SET_CATEGORIES", categories);
+        });
     },
     getProduct: ({ commit }, productId) => {
       axios
-        .get(`https://mysterious-everglades-58663.herokuapp.com/${productId}`)
+        .get(
+          `https://mysterious-everglades-58663.herokuapp.com/category/${productId}`
+        )
         .then((response) => {
           commit("SET_PRODUCT", response.data);
         });
@@ -97,11 +103,14 @@ export default new Vuex.Store({
     },
     register: ({ commit }, { username, email, password }) => {
       axios
-        .post("https://mysterious-everglades-58663.herokuapp.com/auth/local/register", {
-          username: username,
-          email: email,
-          password: password,
-        })
+        .post(
+          "https://mysterious-everglades-58663.herokuapp.com/auth/local/register",
+          {
+            username: username,
+            email: email,
+            password: password,
+          }
+        )
         .then((response) => {
           localStorage.setItem("token", response.data.jwt);
           commit("SET_USER", response.data.user);
