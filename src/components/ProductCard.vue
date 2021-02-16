@@ -45,7 +45,7 @@ export default {
     updateImage() {
       return this.product.image.url
         .split("/uploads/")
-        .join("http://localhost:1337/uploads/");
+        .join("https://mysterious-everglades-58663.herokuapp.com/uploads/");
     },
   },
   methods:{
