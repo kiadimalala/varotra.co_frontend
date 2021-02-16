@@ -147,7 +147,7 @@ export default new Vuex.Store({
         total += item.product.price * item.quantity;
       });
 
-      return total;
+      return total.toFixed(2);
     },
   },
   modules: {},
