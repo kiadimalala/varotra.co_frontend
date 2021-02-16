@@ -146,8 +146,8 @@ export default new Vuex.Store({
       state.cart.forEach((item) => {
         total += item.product.price * item.quantity;
       });
-
-      return total.toFixed(2);
+      let totalPrice = total.toFixed(2);
+      return  totalPrice
     },
   },
   modules: {},
