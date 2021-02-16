@@ -69,16 +69,16 @@ export default new Vuex.Store({
     },
     getProduct: ({ commit }, productId) => {
       axios
-        .get(
-          `https://mysterious-everglades-58663.herokuapp.com/category/${productId}`
-        )
+        .get(`https://mysterious-everglades-58663.herokuapp.com/${productId}`)
         .then((response) => {
           commit("SET_PRODUCT", response.data);
         });
     },
     productByCategory: ({ commit }, categoryId) => {
       axios
-        .get(`https://mysterious-everglades-58663.herokuapp.com/${categoryId}`)
+        .get(
+          `https://mysterious-everglades-58663.herokuapp.com/categories/${categoryId}`
+        )
         .then((response) => {
           commit("SET_BY_CATEGORY", response.data);
         });
