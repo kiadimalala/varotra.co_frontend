@@ -34,7 +34,10 @@
           <h1 class="font-semibold text-gray-100">${{ product.price }}</h1>
         </div>
         <div>
-          <button @click="addToCart" class="h-10 w-40 border border-gray-500 focus:outline-none ">
+          <button
+            @click="addToCart"
+            class="h-10 w-40 border border-gray-500 focus:outline-none "
+          >
             Add to Cart
           </button>
         </div>
@@ -53,13 +56,16 @@ export default {
     updateImage() {
       return this.product.image.url
         .split("/uploads/")
-        .join("http://localhost:1337/uploads/");
+        .join("https://mysterious-everglades-58663.herokuapp.com/uploads/");
     },
   },
   methods: {
-    addToCart(){
-      this.$store.dispatch('addProductToCart',{product:this.product,quantity:1})
-    }
+    addToCart() {
+      this.$store.dispatch("addProductToCart", {
+        product: this.product,
+        quantity: 1,
+      });
+    },
   },
   created() {
     this.$store.dispatch("getProduct", this.id);
