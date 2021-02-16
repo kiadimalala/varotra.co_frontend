@@ -69,7 +69,7 @@ export default new Vuex.Store({
     },
     getProduct: ({ commit }, productId) => {
       axios
-        .get(`https://mysterious-everglades-58663.herokuapp.com/${productId}`)
+        .get(`https://mysterious-everglades-58663.herokuapp.com/products/${productId}`)
         .then((response) => {
           commit("SET_PRODUCT", response.data);
         });
