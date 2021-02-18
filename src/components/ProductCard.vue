@@ -28,7 +28,7 @@
         </div>
         <button
           class="text-center text-sm w-full h-full border border-gray-700 p-1 hover:bg-gray-700 hover:text-gray-100 transition duration-500 focus:outline-none "
-        @click="addToCart"
+          @click="addToCart"
         >
           Add to cart
         </button>
@@ -45,14 +45,17 @@ export default {
     updateImage() {
       return this.product.image.url
         .split("/uploads/")
-        .join("https://mysterious-everglades-58663.herokuapp.com/uploads/");
+        .join("https://varotra-co.herokuapp.com/uploads/");
     },
   },
-  methods:{
-    addToCart(){
-      this.$store.dispatch('addProductToCart',{product:this.product,quantity:1})
-    }
-  }
+  methods: {
+    addToCart() {
+      this.$store.dispatch("addProductToCart", {
+        product: this.product,
+        quantity: 1,
+      });
+    },
+  },
 };
 </script>
 

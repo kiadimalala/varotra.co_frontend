@@ -53,7 +53,7 @@ export default new Vuex.Store({
   actions: {
     getProducts: ({ commit }) => {
       axios
-        .get("https://mysterious-everglades-58663.herokuapp.com/products")
+        .get("https://varotra-co.herokuapp.com/products")
         .then((response) => {
           const products = response.data;
           commit("SET_PRODUCTS", products);
@@ -61,7 +61,7 @@ export default new Vuex.Store({
     },
     getCategories: ({ commit }) => {
       axios
-        .get("https://mysterious-everglades-58663.herokuapp.com/categories")
+        .get("https://varotra-co.herokuapp.com/categories")
         .then((response) => {
           const categories = response.data;
           commit("SET_CATEGORIES", categories);
@@ -69,16 +69,14 @@ export default new Vuex.Store({
     },
     getProduct: ({ commit }, productId) => {
       axios
-        .get(`https://mysterious-everglades-58663.herokuapp.com/products/${productId}`)
+        .get(`https://varotra-co.herokuapp.com/products/${productId}`)
         .then((response) => {
           commit("SET_PRODUCT", response.data);
         });
     },
     productByCategory: ({ commit }, categoryId) => {
       axios
-        .get(
-          `https://mysterious-everglades-58663.herokuapp.com/categories/${categoryId}`
-        )
+        .get(`https://varotra-co.herokuapp.com/categories/${categoryId}`)
         .then((response) => {
           commit("SET_BY_CATEGORY", response.data);
         });
@@ -89,7 +87,7 @@ export default new Vuex.Store({
 
     logIn: ({ commit }, { identifier, password }) => {
       axios
-        .post("https://mysterious-everglades-58663.herokuapp.com/auth/local", {
+        .post("https://varotra-co.herokuapp.com/auth/local", {
           identifier: identifier,
           password: password,
         })
@@ -103,14 +101,11 @@ export default new Vuex.Store({
     },
     register: ({ commit }, { username, email, password }) => {
       axios
-        .post(
-          "https://mysterious-everglades-58663.herokuapp.com/auth/local/register",
-          {
-            username: username,
-            email: email,
-            password: password,
-          }
-        )
+        .post("https://varotra-co.herokuapp.com/auth/local/register", {
+          username: username,
+          email: email,
+          password: password,
+        })
         .then((response) => {
           localStorage.setItem("token", response.data.jwt);
           commit("SET_USER", response.data.user);
@@ -121,7 +116,7 @@ export default new Vuex.Store({
     },
     getOrder: ({ commit }) => {
       axios
-        .get("https://mysterious-everglades-58663.herokuapp.com/orders", {
+        .get("https://varotra-co.herokuapp.com/orders", {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -147,7 +142,7 @@ export default new Vuex.Store({
         total += item.product.price * item.quantity;
       });
       let totalPrice = total.toFixed(2);
-      return  totalPrice
+      return totalPrice;
     },
   },
   modules: {},

@@ -56,7 +56,7 @@ export default {
     updateImage() {
       return this.product.image.url
         .split("/uploads/")
-        .join("https://mysterious-everglades-58663.herokuapp.com/uploads/");
+        .join("https://varotra-co.herokuapp.com/uploads/");
     },
   },
   methods: {
